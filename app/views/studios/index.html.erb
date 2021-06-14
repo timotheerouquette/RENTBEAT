@@ -1,0 +1,7 @@
+<ul>
+  <% @studios.each do |studio| %>
+    <li><%= link_to(studio.title, "#{studio.id}") %></li>
+  <% end %>
+</ul>
+
+

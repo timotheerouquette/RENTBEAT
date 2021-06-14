@@ -1,0 +1,8 @@
+<%= simple_form_for (@studio) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :capacity %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
