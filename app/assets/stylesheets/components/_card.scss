@@ -1,0 +1,13 @@
+.cards {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:15px;
+}
+
+.card-studio {
+  padding: 25px;
+  height:200px;
+  background-color: #313154;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}

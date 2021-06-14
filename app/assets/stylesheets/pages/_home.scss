@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+
+
+// title & subtitle
+
+
+.title-container {
+  line-height: 50%;
+  margin-top: 30px;
+  h1 {
+    margin-bottom: 0;
+  }
+
+}
+
+.title-homepage {
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.subtitle-homepage {
+  text-align: center;
+}
+
+
+// section container
+
+.homepage-section {
+  margin-bottom: 80px;
+}
+
+
+// search bar
+.searchbar-container {
+  background-color: #313154;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 30px;
+}
