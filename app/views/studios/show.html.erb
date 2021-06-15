@@ -10,4 +10,6 @@
   <% end %>
 
 <%= link_to("Back flats list", studios_path) %>
+<% if policy(Booking).create? %>
 <%= link_to("Book this studio", new_studio_booking_path(@studio)) %>
+<% end %>
