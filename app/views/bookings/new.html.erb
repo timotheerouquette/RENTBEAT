@@ -1,0 +1,5 @@
+<h4>New booking:</h4>
+  <%= simple_form_for(@booking) do |f| %>
+    <%= f.association :studio %>
+    <%= f.submit "Submit booking", class: "btn btn-primary"%>
+  <% end %>
