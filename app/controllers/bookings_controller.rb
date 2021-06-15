@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "To be confirmed"
     if @booking.save
-      redirect_to studio_path(@studio)
+      redirect_to my_bookings_path
     else
       redirect_to new_studio_booking_path(@studio)
     end

@@ -1,10 +1,31 @@
 
-<ul>
-  <% current_user.bookings.each do |booking| %>
+<div class="container-mybookings">
+  <h1>My bookings</h1>
+  <ul>
 
-      <li><%= booking.studio.title %> - <%= booking.status %></li>
-      <p>from : <%= booking.start_date %> <br>
-      to : <%= booking.end_date %> </p>
-      <% end %>
+    <div class="card card-booking">
+      <li><strong>Studio Bleu</strong> - <span class="badge badge-success">Confirmed</span></li>
+      <p>From : 2021-06-02 00:00:00 UTC <br>
+        To : 2021-06-02 00:00:00 UTC </p>
+    </div>
+    <div class="card card-booking">
+      <li><strong>Studio Jaune</strong> - <span class="badge badge-danger">Canceled</span></li>
+      <p>From : 2021-06-02 00:00:00 UTC <br>
+        To : 2021-06-02 00:00:00 UTC </p>
+    </div>
 
-</ul>
+    <% current_user.bookings.each do |booking| %>
+      <div class="card card-booking">
+        <% if booking.status == "To be confirmed"%>
+          <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+        <% elsif booking.status == "Confirmed"%>
+          <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
+        <% elsif booking.status == "Canceled"%>
+          <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
+        <% end %>
+        <p>From : <%= booking.start_date %> <br>
+        To : <%= booking.end_date %> </p>
+      </div>
+    <% end %>
+  </ul>
+</div>
