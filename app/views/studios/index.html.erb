@@ -1,12 +1,30 @@
-<ul>
-  <% @studios.each do |studio| %>
-    <li><%= link_to(studio.title, studio_path(studio)) %>
-        <%= link_to studio_path(studio.id), method: :delete, data: { confirm: "Delete #{studio.title}?" } do %>
-        <i>Delete</i>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
 
+<div class="container-studios">
+  <h1>All studios </h1>
+  <br>
+  <%= link_to "Add a studio", new_studio_path, class: "button" %>
+  <br>
+  <br>
+  <div class="cards">
+    <% @studios.each do |studio| %>
+      <div class="card-studio">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+        <div class="card-studio-infos">
+          <div>
+            <%= link_to studio.title, studio_path(studio) %>
+            <p> — <em><%= studio.address %></em> </p>
+            <%= link_to studio_path(studio.id), method: :delete, data: { confirm: "Delete #{studio.title}?" } do %>
+              <i>Delete</i>
+            <% end %>
 
-<%= link_to("Add a studio", new_studio_path) %>
+          </div>
+          <div>
+            <p> <%= studio.capacity %> ☺ </p>
+            <p> <strong><%= studio.price %>€ </strong></p>
+          </div>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-studio-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
