@@ -1,12 +1,14 @@
 <ul>
   <% @studios.each do |studio| %>
     <li><%= link_to(studio.title, studio_path(studio)) %>
-        <%= link_to studio_path(studio.id), method: :delete, data: { confirm: "Delete #{studio.title}?" } do %>
-        <i>Delete</i>
+        <% if policy(studio).destroy? %>
+        <%= link_to "Delete", studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" } %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
 
-<%= link_to("Add a studio", new_studio_path) %>
+<% if policy(Studio).create? %>
+  <%= link_to "New studio", new_studio_path %>
+<% end %>
