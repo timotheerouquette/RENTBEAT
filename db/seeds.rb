@@ -7,14 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.new(name: "Océane Lucas",
-                 email: "oceane@mail.com",
-                 password: "oceane",
-                 description: "Music producer",
-                 avatar: "https://images.unsplash.com/photo-1561948955-570b270e7c36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=518&q=80"
-                 )
+#user1 = User.new(name: "Océane Lucas",
+#                 email: "oceane@mail.com",
+#                 password: "oceane",
+#                 description: "Music producer",
+#                 avatar: "https://images.unsplash.com/photo-1561948955-570b270e7c36?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=518&q=80"
+#                 )
 
-user1.save!
+#user1.save!
+
+user1 = User.find(1)
+
 
 studio1 = Studio.new(address: "74 boulevard du Montparnasse 75014 Paris" ,
             title: "Pop Music Studio",
