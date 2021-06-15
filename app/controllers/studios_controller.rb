@@ -26,12 +26,13 @@ class StudiosController < ApplicationController
 
   def edit
     @studio = Studio.find(params[:id])
+    authorize @studio
   end
 
   def update
-    authorize @studio
     @studio = Studio.find(params[:id])
     @studio.update(studio_params)
+    authorize @studio
 
     redirect_to studio_path(@studio)
   end
