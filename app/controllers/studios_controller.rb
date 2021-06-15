@@ -39,6 +39,9 @@ class StudiosController < ApplicationController
     redirect_to studios_path
   end
 
+  def display
+  end
+
   private
 
   def studio_params
