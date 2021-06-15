@@ -1,12 +1,16 @@
 
 
 <div class="container-studios">
-  <h1>All studios </h1>
-  <br>
-  <% if policy(Studio).create? %>
-    <%= link_to "New studio", new_studio_path, class: "button" %>
-  <% end %>
-  <br>
+  <div class="container-studios-title">
+    <div>
+      <h1>All studios </h1>
+    </div>
+    <div>
+      <% if policy(Studio).create? %>
+        <%= link_to "New studio", new_studio_path, class: "button" %>
+      <% end %>
+    </div>
+  </div>
   <br>
   <div class="cards">
     <% @studios.each do |studio| %>
@@ -27,8 +31,8 @@
             <p> — <em><%= studio.address %></em> </p>
           </div>
           <div>
-            <p> <%= studio.capacity %> ☺ </p>
-            <p> <strong><%= studio.price %>€ </strong></p>
+            <p> <%= studio.capacity %> <i class="far fa-user"></i> </p>
+            <p class="price"> <strong><%= studio.price %>€ </strong></p>
           </div>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-studio-user avatar-bordered" />
         </div>

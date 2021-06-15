@@ -1,5 +1,6 @@
 @import "display";
 @import "show";
+@import "new";
 
 .container-studios {
   width: 90%;
@@ -18,3 +19,12 @@
 .studios-card-placeholder {
   position: relative;
 }
+
+.container-studios-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+
