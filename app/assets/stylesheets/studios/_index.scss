@@ -1,5 +1,6 @@
 @import "display";
 @import "show";
+@import "new";
 
 .container-studios {
   width: 90%;
@@ -7,4 +8,23 @@
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+
+.delete-button-placeholder {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}
+
+.studios-card-placeholder {
+  position: relative;
+}
+
+.container-studios-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
 

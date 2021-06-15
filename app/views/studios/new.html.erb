@@ -1,9 +1,13 @@
-<%= simple_form_for (@studio) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :capacity %>
-  <%= f.input :photos, as: :file %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="container-form-studio">
+<h2>Put a studio in <strong>rent</strong></h2>
+<br>
+  <%= simple_form_for (@studio) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :capacity %>
+    <%= f.input :photos, as: :file %>
+    <%= f.submit "Submit", class: "button" %>
+  <% end %>
+</div>

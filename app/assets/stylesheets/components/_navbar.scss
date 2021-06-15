@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #313154;
+  background: $light-purple;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,21 +12,21 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #db00b6;
+  color: $pink;
   &:hover {
     color: white;
   }
 }
 
 .navbar-light .navbar-nav .active > .nav-link {
-  color: #db00b6;
+  color: $pink;
   &:hover {
     color: white;
   }
 }
 
 .navbar-light .navbar-brand {
-  color: #db00b6;
+  color: $pink;
   &:hover {
     color: white;
   }

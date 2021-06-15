@@ -1,5 +1,5 @@
 .button {
-  background-color: #8338ec;
+  background-color: $fluo-purple;
   padding: 10px 20px;
   color:white;
   border-radius:8px;
@@ -9,4 +9,19 @@
     color:white;
   }
 }
+
+.delete-button {
+    border-radius: 50%;
+    background-color: $pink;
+    width: 10px;
+    height: 10px;
+    padding: 5px 8px;
+    color: white;
+
+  &:hover {
+    opacity:0.8;
+    color:white;
+  }
+}
+
 
