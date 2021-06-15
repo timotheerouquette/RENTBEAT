@@ -10,3 +10,18 @@
   }
 }
 
+.delete-button {
+    border-radius: 50%;
+    background-color: #f20089;
+    width: 10px;
+    height: 10px;
+    padding: 5px 8px;
+    color: white;
+
+  &:hover {
+    opacity:0.8;
+    color:white;
+  }
+}
+
+

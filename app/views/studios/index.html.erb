@@ -10,7 +10,12 @@
   <br>
   <div class="cards">
     <% @studios.each do |studio| %>
-      <div class="card-studio">
+      <div class="card-studio studios-card-placeholder">
+        <div class="delete-button-placeholder">
+          <% if policy(studio).destroy? %>
+            <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
+          <% end %>
+        </div>
         <% if studio.photos.attached? %>
           <%= cl_image_tag studio.photos.key, crop: :fill %>
         <% else %>
@@ -20,9 +25,6 @@
           <div>
             <%= link_to studio.title, studio_path(studio) %>
             <p> — <em><%= studio.address %></em> </p>
-            <% if policy(studio).destroy? %>
-              <%= link_to "Delete", studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" } %>
-            <% end %>
           </div>
           <div>
             <p> <%= studio.capacity %> ☺ </p>
@@ -30,7 +32,9 @@
           </div>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-studio-user avatar-bordered" />
         </div>
+
       </div>
     <% end %>
   </div>
 </div>
+
