@@ -40,6 +40,7 @@ class StudiosController < ApplicationController
   end
 
   def display
+    @studios = current_user.studios
   end
 
   private
