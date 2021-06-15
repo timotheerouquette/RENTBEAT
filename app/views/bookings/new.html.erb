@@ -1,11 +1,12 @@
 <div class="container-mynewbooking">
   <h1>New booking at <strong><%= @studio.title %></strong></h1>
+  <h4><em><%= @studio.address %></em></h4>
   <p><em>Description:</em> <%= @studio.description %></p>
   <p><em>Capacity:</em> <%= @studio.capacity %> persons</p>
   <p><em>Price:</em> <%= @studio.price %>€/hour</p>
     <%= simple_form_for [ @studio, @booking ] do |f| %>
-      <%= f.input :start_date, as: :datetime, html5: true %>
-      <%= f.input :end_date, as: :datetime, html5: true %>
+      <%= f.input :start_date, as: :datetime, html5: true, :minute_step => 30 %>
+      <%= f.input :end_date, as: :datetime, html5: true, :minute_step => 30 %>
       <%= f.submit "Submit booking", class: "btn btn-primary"%>
     <% end %>
 </div>
