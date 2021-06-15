@@ -1,8 +1,11 @@
 
+
 <div class="container-studios">
   <h1>All studios </h1>
   <br>
-  <%= link_to "Add a studio", new_studio_path, class: "button" %>
+  <% if policy(Studio).create? %>
+    <%= link_to "New studio", new_studio_path, class: "button" %>
+  <% end %>
   <br>
   <br>
   <div class="cards">
@@ -13,10 +16,9 @@
           <div>
             <%= link_to studio.title, studio_path(studio) %>
             <p> — <em><%= studio.address %></em> </p>
-            <%= link_to studio_path(studio.id), method: :delete, data: { confirm: "Delete #{studio.title}?" } do %>
-              <i>Delete</i>
+            <% if policy(studio).destroy? %>
+              <%= link_to "Delete", studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" } %>
             <% end %>
-
           </div>
           <div>
             <p> <%= studio.capacity %> ☺ </p>

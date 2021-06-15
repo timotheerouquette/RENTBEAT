@@ -4,5 +4,10 @@
 <p> <%= @studio.capacity %> </p>
 <p> <%= @studio.price %> </p>
 
-<%= link_to("Edit", edit_studio_path) %>
+
+  <% if policy(@studio).edit? %>
+    <%= link_to "Update", edit_studio_path(@studio) %>
+  <% end %>
+
 <%= link_to("Back flats list", studios_path) %>
+<%= link_to("Book this studio", new_studio_booking_path(@studio)) %>
