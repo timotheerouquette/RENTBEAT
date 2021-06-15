@@ -30,7 +30,10 @@
             <a class="nav-link" href="#">My Bookings</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Studios</a>
+            <a class="nav-link" href="/my-studios">My Studios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/studios/new">Add a studio</a>
           </li>
           <li class="nav-item dropdown">
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
@@ -43,7 +46,9 @@
       </div>
     </div>
 
-    <%= yield %>
+    <div class="page-container">
+      <%= yield %>
+    </div>
 
     <%= render 'shared/flashes' %>
 

@@ -5,9 +5,45 @@
 }
 
 .card-studio {
-  padding: 25px;
-  height:200px;
+  height:280px;
+  width: 350px;
   background-color: #313154;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 5px;
+  overflow: hidden;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
 }
+
+.card-studio > img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+.card-studio .card-studio-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-studio-infos .card-studio-user {
+  position: absolute;
+  right: 16px;
+  top: -25px;
+  width: 40px;
+}
+
+
