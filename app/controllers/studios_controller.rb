@@ -44,6 +44,10 @@ class StudiosController < ApplicationController
     redirect_to studios_path
   end
 
+  def display
+    @studios = current_user.studios
+  end
+
   private
 
   def studio_params
