@@ -1,7 +1,12 @@
 <ul>
   <% @studios.each do |studio| %>
-    <li><%= link_to(studio.title, "#{studio.id}") %></li>
+    <li><%= link_to(studio.title, studio_path(studio)) %>
+        <%= link_to studio_path(studio.id), method: :delete, data: { confirm: "Delete #{studio.title}?" } do %>
+        <i>Delete</i>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
 
+<%= link_to("Add a studio", new_studio_path) %>
