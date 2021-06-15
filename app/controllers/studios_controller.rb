@@ -45,6 +45,7 @@ class StudiosController < ApplicationController
   end
 
   def display
+    authorize :booking, :display?
     @studios = current_user.studios
   end
 

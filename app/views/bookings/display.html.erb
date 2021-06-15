@@ -1,8 +1,10 @@
 
 <ul>
   <% current_user.bookings.each do |booking| %>
-    <li><%= booking.studio.title %> - <%= booking.status %></li>
-    <p>from : <%= booking.start_date %> <br>
-    to : <%= booking.end_date %> </p>
-    <% end %>
+
+      <li><%= booking.studio.title %> - <%= booking.status %></li>
+      <p>from : <%= booking.start_date %> <br>
+      to : <%= booking.end_date %> </p>
+      <% end %>
+
 </ul>

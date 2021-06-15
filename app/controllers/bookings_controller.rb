@@ -2,11 +2,13 @@ class BookingsController < ApplicationController
   def new
     @studio = Studio.find(params[:studio_id])
     @booking = Booking.new()
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @studio = Studio.find(params[:studio_id])
+    authorize @booking
     @booking.studio = @studio
     @booking.user = current_user
     @booking.status = "To be confirmed"
@@ -18,7 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def display
-
+    authorize :booking, :display?
   end
 
   private

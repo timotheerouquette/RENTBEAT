@@ -20,4 +20,8 @@ class StudioPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def display?
+    return true
+  end
 end
