@@ -37,3 +37,13 @@
   }
 }
 
+// Placement des buttons "delete" sur une card
+.delete-button-placeholder {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+}
+
+.studios-card-placeholder {
+  position: relative;
+}
