@@ -34,4 +34,36 @@
     <p> <%= @studio.description %> </p>
   </div>
 
+  <% if policy(@studio).edit? %>
+    <h3>Manage my studio's bookings</h3>
+    <ul>
+      <% @studio.bookings.each do |booking| %>
+        <div class="card card-booking card-manage">
+          <div class="card-text">
+            <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+            <p>
+              From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
+              To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
