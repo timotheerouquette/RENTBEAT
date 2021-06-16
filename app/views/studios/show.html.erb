@@ -1,31 +1,44 @@
 
 <div class="container">
-  <%= link_to(" < Back studio list", studios_path, class: "back-btn") %>
+  <div class="btn-show">
+  <%= link_to(" < Back studio list", studios_path, class: "button") %>
+    <% if policy(@studio).edit? %>
+      <%= link_to("Update your studio", edit_studio_path(@studio),class: "button") %>
+    <% end %>
+  </div>
 
   <div class="show-container">
 
     <div class="studio-image">
       <% if @studio.photos.attached? %>
-      <%= cl_image_tag @studio.photos.key, height: 70, width: 100, crop: :fill %>
+      <%= cl_image_tag @studio.photos.key, height: 466, width: 666, crop: :fill %>
       <% else %>
         <img id="default-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
       <% end %>
     </div>
 
     <div class="title-info">
-      <h2> <%= @studio.title %> </h2>
-      <p> <%= @studio.address %> </p>
-      <p> <%= @studio.capacity %> </p>
-      <p> <%= @studio.price %> </p>
-
-
-        <% if policy(@studio).edit? %>
-          <%= link_to "Update", edit_studio_path(@studio) %>
+      <div class="title-header">
+        <h2> <%= @studio.title %> </h2>
+        <p> <%= @studio.address %> </p>
+      </div>
+      <br>
+      <br>
+      <div class="book-btn">
+        <% if policy(Booking).create? %>
+        <%= link_to("Book this studio", new_studio_booking_path(@studio),class: "booking-btn") %>
         <% end %>
+      </div>
+      <br>
+      <div class="icons">
+        <div class="capacity" >
+          <p> <%= @studio.capacity   %> <i class="far fa-user">  </i></p>
+        </div>
+        <div class="euros">
+          <p> <%= @studio.price %>€ </p>
+        </div>
+      </div>
 
-      <% if policy(Booking).create? %>
-      <%= link_to("Book this studio", new_studio_booking_path(@studio),class: "back-btn") %>
-      <% end %>
     </div>
   </div>
 
@@ -34,4 +47,36 @@
     <p> <%= @studio.description %> </p>
   </div>
 
+  <% if policy(@studio).edit? %>
+    <h3>Manage my studio's bookings</h3>
+    <ul>
+      <% @studio.bookings.each do |booking| %>
+        <div class="card card-booking card-manage">
+          <div class="card-text">
+            <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+            <p>
+              From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
+              To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

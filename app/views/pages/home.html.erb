@@ -1,17 +1,18 @@
 
 
-<div class="container text-center">
+<div class="container">
 
 
   <div class="homepage-section">
     <div class="title-container">
-      <h1 class="title-homepage">Rent a studio. </h1>
-      <h1 class="title-homepage">Play music. </h1>
+      <h1 class="title-homepage">Rent a studio. Play music.</h1>
     </div>
 
     <p class="subtitle-homepage"><em>Share your studio with other creators.</em></p>
-
-    <a href="/studios" class="button">See all studios</a>
+    <br>
+    <div class="all-center">
+      <a href="/studios" class="button">See all studios</a>
+    </div>
   </div>
 
  <div class="homepage-section">
@@ -22,7 +23,7 @@
       <input type="date" name="start-date" required>
       <input type="date" name="end-date" required>
       <input type="text" name="capacity" placeholder="Number of persons" required>
-      <input type="submit" value="Subscribe!">
+      <input type="submit" value="Search">
     </form>
   </div>
 
@@ -30,26 +31,33 @@
 
  <div class="homepage-section">
 
-    <h3> Latest studios online (3 cards) </h3>
+    <h3> Latest studios online </h3>
+    <br>
 
     <div class="cards">
+      <% @top.each do |studio| %>
       <div class="card-studio">
-        <p><strong>Pop Music Studio</strong></p>
-        <p>-- Paris</p>
-      </div>
+        <% if studio.photos.attached? %>
+          <%= cl_image_tag studio.photos.key, crop: :fill %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+         <% end %>
+        <div class="card-studio-infos">
+          <div>
+            <%= link_to studio.title, studio_path(studio) %>
+            <p> — <em><%= studio.address %></em> </p>
+          </div>
+          <div>
+            <p> <%= studio.capacity %> <i class="far fa-user"></i> </p>
+            <p class="price"> <strong><%= studio.price %>€ </strong></p>
+          </div>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-studio-user avatar-bordered" />
+        </div>
 
-      <div class="card-studio">
-        <p><strong>Pop Music Studio</strong></p>
-        <p>-- Paris</p>
       </div>
-
-      <div class="card-studio">
-        <p><strong>Pop Music Studio</strong></p>
-        <p>-- Paris</p>
-      </div>
-
+      <% end %>
     </div>
-
+<br>
   </div>
 
 

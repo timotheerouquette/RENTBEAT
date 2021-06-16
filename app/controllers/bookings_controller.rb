@@ -19,6 +19,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    authorize @booking
+
+    redirect_to studio_path(@studio)
+  end
+
   def display
     authorize :booking, :display?
   end

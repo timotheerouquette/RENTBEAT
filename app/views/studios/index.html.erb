@@ -14,15 +14,26 @@
   </div>
   <br>
 
+
   <div class="container-map">
 
-    <div class="cards-index">
-      <% @studios.each do |studio| %>
-        <div class="card-studio studios-card-placeholder">
-          <div class="delete-button-placeholder">
-            <% if policy(studio).destroy? %>
-              <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
-            <% end %>
+  <div class="cards-index">
+    <% @studios.each do |studio| %>
+      <div class="card-studio studios-card-placeholder">
+        <div class="delete-button-placeholder">
+          <% if policy(studio).destroy? %>
+            <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
+          <% end %>
+        </div>
+        <% if studio.photos.attached? %>
+          <%= cl_image_tag studio.photos.key, crop: :fill %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+        <% end %>
+        <div class="card-studio-infos">
+          <div>
+            <%= link_to studio.title, studio_path(studio) %>
+            <p> — <em><%= studio.address %></em> </p>
           </div>
           <% if studio.photos.attached? %>
             <%= cl_image_tag studio.photos.key, crop: :fill %>
