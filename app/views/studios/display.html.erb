@@ -2,7 +2,16 @@
 <div class="container-mystudios">
 
 
-  <h1>My studios to rent</h1>
+   <div class="container-studios-title">
+    <div>
+      <h1>My studios to rent</h1>
+    </div>
+    <div>
+      <% if policy(Studio).create? %>
+        <%= link_to "New studio", new_studio_path, class: "button" %>
+      <% end %>
+    </div>
+  </div>
   <div class="cards">
     <% @studios.each do |studio| %>
       <div class="card-studio">
