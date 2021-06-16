@@ -5,7 +5,9 @@ class StudiosController < ApplicationController
     @markers = @studios.geocoded.map do |studio|
       {
         lat: studio.latitude,
-        lng: studio.longitude
+        lng: studio.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { studio: studio }),
+        image_url: helpers.asset_url('headphones.svg')
       }
     end
   end
