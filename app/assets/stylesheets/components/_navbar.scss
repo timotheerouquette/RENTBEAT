@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light-purple;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -32,3 +34,7 @@
   }
 }
 
+.text-bar {
+  display:flex;
+  padding-right: 25px;
+}

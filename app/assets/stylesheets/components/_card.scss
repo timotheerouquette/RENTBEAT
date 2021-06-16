@@ -4,6 +4,13 @@
   grid-gap:15px;
 }
 
+.cards-index {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 120px;
+  row-gap: 50px;
+}
+
 .card-studio {
   height:280px;
   width: 350px;
