@@ -63,7 +63,14 @@
 }
 
 .card-manage {
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
 }
 
+.card-photo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  width: 100px;
+}
