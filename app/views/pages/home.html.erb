@@ -18,14 +18,31 @@
  <div class="homepage-section">
 
   <div class="searchbar-container">
-    <form action="" method="get">
-      <input type="text" name="name" placeholder="In which city?"required>
-      <input type="date" name="start-date" required>
-      <input type="date" name="end-date" required>
-      <input type="text" name="capacity" placeholder="Number of persons" required>
-      <input type="submit" value="Search">
-    </form>
+
+    <%= form_tag studios_path, method: :get, class:'form-inline' do %>
+
+    <div class="row align-items-center">
+    <div class="col">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "In which city?" %>
+    </div>
+    <div class="col">
+      <%= number_field_tag :price, params[:price], class: "form-control", placeholder: "Max. price" %>
+    </div>
+    <div class="col">
+      <%= number_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "Min. capacity" %>
+    </div>
+    <div class="col">
+      <%= submit_tag "Search", class: "btn-search" %>
+    </div>
+
+</div>
+    <% end %>
+
+
   </div>
+
+  <br>
+
 
  </div>
 

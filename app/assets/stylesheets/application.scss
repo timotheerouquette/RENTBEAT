@@ -19,8 +19,11 @@
 a {
   text-decoration: none !important;
   color: $pink;
-}
 
+  &:hover {
+    color: white;
+  }
+}
 
 body {
   color: white;

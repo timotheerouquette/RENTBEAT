@@ -1,6 +1,13 @@
 class StudiosController < ApplicationController
   def index
-    @studios = policy_scope(Studio)
+    if params[:capacity]
+      studios_price = policy_scope(Studio).where('price <= ?', params[:price])
+      studios_capacity = studios_price.where('capacity >= ?', params[:capacity])
+      @studios = studios_capacity.near(params[:city], 40, order: :distance)
+
+    else
+      @studios = policy_scope(Studio)
+    end
 
     @markers = @studios.geocoded.map do |studio|
       {
