@@ -46,3 +46,12 @@ document.addEventListener('turbolinks:load', () => {
 import { initFlatpickr } from "../plugins/flatpickr";
 
 initFlatpickr();
+
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Warning!",
+  text: "You currently have bookings for this studio",
+  icon: "warning"
+});
+

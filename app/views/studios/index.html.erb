@@ -52,7 +52,9 @@
       <br>
       <br>
       <div class="cards-index">
-        <h1>My studios</h1>
+        <% if current_user.studios.length !=0 %>
+          <h1>My studios</h1>
+        <% end %>
       </div>
       <br>
       <div class="cards-index">
@@ -61,7 +63,13 @@
             <div class="card-studio studios-card-placeholder">
               <div class="delete-button-placeholder">
                 <% if policy(studio).destroy? %>
-                  <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
+                  <% if studio.bookings.length != 0%>
+                    <a class="delete-button" id="sweet-alert-demo">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  <% else %>
+                    <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
+                  <% end %>
                 <% end %>
               </div>
 
