@@ -6,10 +6,12 @@
     <% else %>
       <%= link_to(" < Back to studio list", studios_path, class: "button") %>
     <% end %>
-    <% if policy(@studio).edit? %>
-      <%= link_to("Update your studio", edit_studio_path(@studio),class: "button") %>
-    <% end %>
   </div>
+
+  <div class="title-header">
+        <h2> <%= @studio.title %> </h2>
+        <p> <%= @studio.address %> </p>
+      </div>
 
   <div class="show-container">
 
@@ -27,26 +29,38 @@
           <em>You own this studio</em>
         </div>
       <% end %>
-      <div class="title-header">
-        <h2> <%= @studio.title %> </h2>
-        <p> <%= @studio.address %> </p>
-      </div>
-      <br>
-      <br>
-      <div class="book-btn">
-        <% if policy(Booking).create? && @studio.user != current_user%>
-        <%= link_to("Book this studio", new_studio_booking_path(@studio),class: "booking-btn") %>
-        <% end %>
-      </div>
-      <br>
+
       <div class="icons">
         <div class="capacity" >
           <p> <%= @studio.capacity   %> <i class="far fa-user">  </i></p>
         </div>
-        <div class="euros">
-          <p> <%= @studio.price %>€ </p>
+        <div class="euros" data-price='<%= @studio.price %>'>
+          <p> <%= @studio.price %>€ per day</p>
         </div>
       </div>
+      <div class="book-btn">
+        <% if policy(Booking).create? && @studio.user != current_user%>
+        <div>
+          <div class="form-wrapper" style="width: 300px; margin: 0 auto;">
+            <%= simple_form_for [ @studio, @booking ] do |f| %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {id: "range_start"} %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {id: "range_end"} %>
+              <%  %>
+            <div>Number of days: <span  id="length-of-stay"> </span></div>
+            <div>Total price: <span id="total-price" data-price='<%= @studio.price%>'></span>€</div>
+            <br>
+            <%= f.button :submit, "Confirm your booking", class: "booking-btn" %>
+            <% end %>
+
+          </div>
+        </div>
+        <% end %>
+        <% if policy(@studio).edit? %>
+          <%= link_to("Update your studio", edit_studio_path(@studio),class: "button") %>
+        <% end %>
+      </div>
+      <br>
+
 
     </div>
   </div>
@@ -72,6 +86,7 @@
       <% end %>
     </ul>
   <% end %>
+
 
 
 </div>
