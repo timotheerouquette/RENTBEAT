@@ -42,6 +42,11 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
 
+
+import { initFlatpickr } from "../plugins/flatpickr";
+
+initFlatpickr();
+
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 initSweetalert('#sweet-alert-demo', {
@@ -49,3 +54,4 @@ initSweetalert('#sweet-alert-demo', {
   text: "You currently have bookings for this studio",
   icon: "warning"
 });
+

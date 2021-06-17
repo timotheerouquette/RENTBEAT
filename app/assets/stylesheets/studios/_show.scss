@@ -6,6 +6,10 @@
   border-radius: 5px;
 }
 
+.title-header {
+  margin-top: 20px;
+}
+
 .title-info {
   border: 10px;
   margin: 35px;
@@ -35,8 +39,9 @@
 .icons {
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
-  font-size: 35px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 20px;
   font-weight: lighter;
 
 }
@@ -48,4 +53,5 @@
 
 .ownership {
   color: $pink;
+  margin-bottom: 15px;
 }
