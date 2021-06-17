@@ -38,3 +38,12 @@
   display:flex;
   padding-right: 25px;
 }
+
+.tooltip-navbar {
+  color: $fluo-purple;
+  font-weight:bold;
+  padding-left: 1.5rem;
+  border-bottom: 1px lightgrey solid;
+  padding-bottom:0px;
+  margin:0px;
+}

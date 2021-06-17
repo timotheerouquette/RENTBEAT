@@ -60,7 +60,7 @@ class StudiosController < ApplicationController
     authorize @studio
     @studio.destroy
 
-    redirect_to studios_path
+    redirect_to my_studios_path
   end
 
   def display
