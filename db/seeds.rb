@@ -16,6 +16,10 @@
 
 #user1.save!
 
+Booking.destroy_all
+Studio.destroy_all
+
+
 user1 = User.find(1)
 
 
@@ -60,7 +64,7 @@ studio4 = Studio.new( address: "8 rue du four 75006 Paris"  ,
 studio4.save!
 
 studio5 = Studio.new( address: "131 rue de la boétie 75008 Paris" ,
-            title: "Studio w/ latest soundproof technology ",
+            title: "Studio soundproof tech ",
             description: "Convenient workspace, fully soundproofed and acoustically treated.",
             price: 75,
             capacity: 8,
