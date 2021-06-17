@@ -23,13 +23,13 @@
 
     <div class="row align-items-center">
     <div class="col">
-      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "In which city?" %>
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "In which city?", required:true %>
     </div>
     <div class="col">
-      <%= number_field_tag :price, params[:price], class: "form-control", placeholder: "Max. price" %>
+      <%= number_field_tag :price, params[:price], class: "form-control", placeholder: "Max. price", required:true %>
     </div>
     <div class="col">
-      <%= number_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "Min. capacity" %>
+      <%= number_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "Min. capacity", required:true %>
     </div>
     <div class="col">
       <%= submit_tag "Search", class: "btn-search" %>
