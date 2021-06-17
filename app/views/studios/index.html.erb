@@ -64,8 +64,8 @@
               <div class="delete-button-placeholder">
                 <% if policy(studio).destroy? %>
                   <% if studio.bookings.length != 0%>
-                    <a class="delete-button">
-                      <i class="far fa-trash-alt" id="sweet-alert-demo"></i>
+                    <a class="delete-button" id="sweet-alert-demo">
+                      <i class="far fa-trash-alt"></i>
                     </a>
                   <% else %>
                     <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, studio_path(studio), method: :delete, data: { confirm: "Delete #{studio.title}?" }, class: "delete-button" %>
