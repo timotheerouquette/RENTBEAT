@@ -62,12 +62,28 @@
       <% @studio.bookings.each do |booking| %>
         <div class="card card-booking card-manage">
           <div class="card-text">
-            <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+
+            <% if booking.status == "To be confirmed"%>
+              <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+            <% elsif booking.status == "Confirmed"%>
+              <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
+            <% elsif booking.status == "Canceled"%>
+              <li>Booked by : <strong><%= booking.user.email %></strong> - <span class="badge badge-danger"><%= booking.status %></span></li>
+            <% end %>
+
             <p>
               From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
               To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %>
             </p>
+            <div class="notification-action">
+              <%= link_to "Confirm", confirm_booking_path(booking), method: :patch %>
+              <%= link_to "Cancel", cancel_booking_path(booking), method: :patch %>
+            </div>
           </div>
+
+
+
+
         </div>
       <% end %>
     </ul>
