@@ -1,7 +1,11 @@
 
 <div class="container">
   <div class="btn-show">
-  <%= link_to(" < Back studio list", studios_path, class: "button") %>
+    <% if @studio.user == current_user %>
+      <%= link_to(" < Back to my studios", my_studios_path, class: "button") %>
+    <% else %>
+      <%= link_to(" < Back to studio list", studios_path, class: "button") %>
+    <% end %>
     <% if policy(@studio).edit? %>
       <%= link_to("Update your studio", edit_studio_path(@studio),class: "button") %>
     <% end %>
