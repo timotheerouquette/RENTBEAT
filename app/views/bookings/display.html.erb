@@ -2,19 +2,6 @@
 <div class="container-mybookings">
   <h1>My bookings</h1>
   <ul>
-
-    <div class="card card-booking">
-      <li><strong>Studio Bleu</strong> - <span class="badge badge-success">Confirmed</span></li>
-      <p>
-        From : Thu, 17 Jun 2021 at 19:00 <br>
-        To : Thu, 17 Jun 2021 at 20:00 </p>
-    </div>
-    <div class="card card-booking">
-      <li><strong>Studio Jaune</strong> - <span class="badge badge-danger">Canceled</span></li>
-      <p>
-        From : Thu, 17 Jun 2021 at 14:00 <br>
-        To : Thu, 17 Jun 2021 at 16:00 </p>
-    </div>
     <% current_user.bookings.each do |booking| %>
       <div class="card card-booking">
         <div class="card-manage">

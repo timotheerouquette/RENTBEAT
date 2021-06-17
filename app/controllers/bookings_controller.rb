@@ -19,12 +19,22 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
+  def confirm
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
     authorize @booking
+    @studio = @booking.studio
+    @booking.status = "Confirmed"
+    @booking.save
+    redirect_to studio_path(@studio), notice: "confirmed!"
+  end
 
-    redirect_to studio_path(@studio)
+  def cancel
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @studio = @booking.studio
+    @booking.status = "Canceled"
+    @booking.save
+    redirect_to studio_path(@studio), notice: "canceled!"
   end
 
   def display
