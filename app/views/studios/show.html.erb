@@ -18,6 +18,11 @@
     </div>
 
     <div class="title-info">
+      <% if policy(@studio).edit? %>
+        <div class="ownership">
+          <em>You own this studio</em>
+        </div>
+      <% end %>
       <div class="title-header">
         <h2> <%= @studio.title %> </h2>
         <p> <%= @studio.address %> </p>
@@ -25,7 +30,7 @@
       <br>
       <br>
       <div class="book-btn">
-        <% if policy(Booking).create? %>
+        <% if policy(Booking).create? && @studio.user != current_user%>
         <%= link_to("Book this studio", new_studio_booking_path(@studio),class: "booking-btn") %>
         <% end %>
       </div>
@@ -47,7 +52,7 @@
     <p> <%= @studio.description %> </p>
   </div>
 
-  <% if policy(@studio).edit? %>
+  <% if policy(@studio).edit? && @studio.bookings.length != 0 %>
     <h3>Manage my studio's bookings</h3>
     <ul>
       <% @studio.bookings.each do |booking| %>
