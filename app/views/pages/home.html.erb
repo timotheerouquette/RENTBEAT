@@ -19,24 +19,24 @@
 
   <div class="searchbar-container">
 
-      <%= form_tag studios_path, method: :get, class:'form-inline' do %>
-    <%= text_field_tag :city,
-      params[:city],
-      class: "form-control",
-      placeholder: "In which city?"
-    %>
-    <%= number_field_tag :price,
-      params[:price],
-      class: "form-control",
-      placeholder: "Maxium price"
-    %>
-    <%= number_field_tag :capacity,
-      params[:capacity],
-      class: "form-control",
-      placeholder: "Number of persons"
-    %>
-    <%= submit_tag "Search", class: "button" %>
-  <% end %>
+    <%= form_tag studios_path, method: :get, class:'form-inline' do %>
+
+    <div class="row align-items-center">
+    <div class="col">
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "In which city?" %>
+    </div>
+    <div class="col">
+      <%= number_field_tag :price, params[:price], class: "form-control", placeholder: "Max. price" %>
+    </div>
+    <div class="col">
+      <%= number_field_tag :capacity, params[:capacity], class: "form-control", placeholder: "Min. capacity" %>
+    </div>
+    <div class="col">
+      <%= submit_tag "Search", class: "btn-search" %>
+    </div>
+
+</div>
+    <% end %>
 
 
   </div>

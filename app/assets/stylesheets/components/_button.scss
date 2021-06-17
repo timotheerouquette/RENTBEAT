@@ -3,7 +3,7 @@
   padding: 10px 20px;
   color:white;
   border-radius:8px;
-
+  border:none;
 
   &:hover {
     opacity:0.7;
@@ -12,6 +12,19 @@
 }
 
 
+.btn-search {
+  background-color: $fluo-purple;
+  width:89px;
+  height:38px;
+  color:white;
+  border-radius:8px;
+  border:none;
+
+  &:hover {
+    opacity:0.7;
+    color:white;
+  }
+}
 .booking-btn {
   background-color: #F20089;
   border-radius: 5px;
