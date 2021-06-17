@@ -53,9 +53,13 @@
 
     <div class="cards">
 
-    <% @top.each do |studio| %>
-      <%= render 'shared/card', studio: studio %>
-    <% end %>
+
+        <% @top.each do |studio| %>
+          <div class="card-studio">
+            <%= render 'shared/card', studio: studio %>
+          </div>
+        <% end %>
+
 
     </div>
 <br>
