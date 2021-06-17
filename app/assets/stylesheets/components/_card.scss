@@ -30,10 +30,12 @@
   }
 }
 
-.card-studio > img {
+.card-img-container {
+  img {
     height: 200px;
     width: 100%;
     object-fit: cover;
+  }
   }
 
 .card-studio .card-studio-infos {
@@ -71,4 +73,11 @@
   height: 100px;
   width: 200px;
   object-fit: cover;
+}
+
+.title-card {
+  color: $pink !important;
+  &:hover {
+    color: white !important;
+  }
 }

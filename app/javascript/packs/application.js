@@ -26,32 +26,24 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
-
-// Mapbox
-
-
 import { initMapbox } from '../plugins/init_mapbox';
+import { initFlatpickr } from "../plugins/flatpickr";
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initFlatpickr();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Warning!",
+    text: "You currently have bookings for this studio",
+    icon: "warning"
+  });
 })
 
 
-import { initFlatpickr } from "../plugins/flatpickr";
 
-initFlatpickr();
 
-import { initSweetalert } from '../plugins/init_sweetalert';
 
-initSweetalert('#sweet-alert-demo', {
-  title: "Warning!",
-  text: "You currently have bookings for this studio",
-  icon: "warning"
-});
+
 
