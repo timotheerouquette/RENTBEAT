@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path
     else
-      redirect_to new_studio_booking_path(@studio)
+      render "studios/show"
     end
   end
 

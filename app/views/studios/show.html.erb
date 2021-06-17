@@ -49,7 +49,8 @@
             <div>Number of days: <span  id="length-of-stay"> </span></div>
             <div>Total price: <span id="total-price" data-price='<%= @studio.price%>'></span>€</div>
             <br>
-            <%= f.button :submit, "Confirm your booking", class: "booking-btn" %>
+            <%= f.button :submit, "Confirm your booking", hidden: true, id: "sweet-alert-booking", class: "booking-btn"  %>
+            <btn id="fake-btn" class="booking-btn">Confirm your booking</btn>
             <% end %>
 
           </div>
