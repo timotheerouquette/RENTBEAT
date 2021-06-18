@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   def home
     studios = Studio.all
     sorted = studios.sort_by(&:created_at)
-    @top = sorted.reverse.first(3)
+    @top = sorted.reverse.first(6)
   end
 end

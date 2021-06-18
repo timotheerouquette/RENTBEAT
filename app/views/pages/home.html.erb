@@ -1,6 +1,6 @@
 
 
-<div class="container">
+<div class="container carousel-container">
 
 
   <div class="homepage-section">
@@ -51,18 +51,45 @@
     <h3> Latest studios online </h3>
     <br>
 
-    <div class="cards">
 
 
-        <% @top.each do |studio| %>
-          <div class="card-studio">
-            <%= render 'shared/card', studio: studio %>
+
+
+
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+          <div class="cards">
+            <% @top.first(3).each do |studio| %>
+              <div class="card-studio">
+                <%= render 'shared/card', studio: studio %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-
-
+        </div>
+        <div class="carousel-item">
+          <div class="cards">
+            <% @top.last(3).each do |studio| %>
+              <div class="card-studio">
+                <%= render 'shared/card', studio: studio %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev carousel-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next carousel-btn" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon carousel-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-<br>
+
+    <br>
   </div>
 </div>
 

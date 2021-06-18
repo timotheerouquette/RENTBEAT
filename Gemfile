@@ -68,3 +68,5 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'pundit'
 
 gem 'geocoder'
+
+gem 'bootstrap', '~> 5.0.1'
