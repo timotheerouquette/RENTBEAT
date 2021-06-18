@@ -29,6 +29,7 @@
   background-color: #313154;
   border-radius: 5px;
   padding: 20px;
+  width: 790px;
 }
 
 .btn-show {
@@ -54,4 +55,30 @@
 .ownership {
   color: $pink;
   margin-bottom: 15px;
+}
+
+.profile-show {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: $light-purple;
+  border-radius: 5px;
+  padding: 20px;
+  width: 305px;
+  text-align:center;
+}
+
+.descr-profile-show {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap:15px;
+
+}
+
+.content-profile {
+  line-height:1px;
+}
+
+#user-name-show {
+  color: $pink;
+  font-weight:600;
 }
