@@ -8,3 +8,36 @@
 .container-mybookings ul {
   padding-left: 0;
 }
+
+.booking-title-container {
+  display:flex;
+  align-items:center;
+  margin-bottom:14px;
+  border-bottom: 3px #393960 solid;
+  padding-bottom:5px;
+}
+
+.booking-title {
+  padding-left: 10px;
+}
+
+.booking-date {
+  font-size:13px;
+}
+
+.booking-details {
+  padding: 5px;
+  padding-left:15px;
+  background-color: #393960;
+  border-radius: 5px;
+  border-left: $fluo-purple 6px solid;
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.booking-details-title {
+  margin-left:15px;
+  margin-top:5px;
+  font-size:15px;
+}
+
