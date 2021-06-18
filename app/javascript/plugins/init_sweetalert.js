@@ -22,11 +22,13 @@ const Sweetalert = (selector, options = {}, callback = () => {}) => {
     swalButton.addEventListener('click', (event) => {
       swal({
         title: "Your booking",
-        text: `${dates.value} Estimated price: ${price.innerText}€`,
-        icon: "warning",
+        text: `From ${dates.value}
+
+        Estimated price: ${price.innerText}€`,
+        icon: "info",
         closeOnClickOutside: false,
         closeOnEsc: false,
-        dangerMode: true,
+        dangerMode: false,
         buttons: ["Cancel", "Confirm"]
       }).then((value) => {
         if (value) {

@@ -36,9 +36,11 @@
       <br>
       <br>
 
+    <% if current_user.studios.length !=0 %>
       <div class="cards-index">
         <h1>My studios</h1>
       </div>
+    <% end %>
 
       <div class="cards-index">
         <% if current_user.studios.length !=0 %>
