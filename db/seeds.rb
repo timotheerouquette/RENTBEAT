@@ -25,7 +25,7 @@ user1 = User.find(1)
 
 studio1 = Studio.new(address: "74 boulevard du Montparnasse 75014 Paris" ,
             title: "Pop Music Studio",
-            description: "State-of-the-art recording, mixing, and mastering facility located in the heart of Paris",
+            description: "State-of-the-art recording, mixing, and mastering facility located in the heart of Paris. This space is purpose-built for audio production. The studio features a bespoke studio outboard for shaping and tuning sounds. ",
             price: 45,
             capacity: 8,
             user_id: user1[:id]
@@ -33,9 +33,9 @@ studio1 = Studio.new(address: "74 boulevard du Montparnasse 75014 Paris" ,
 
 studio1.save!
 
-studio2 = Studio.new( address: "74 boulevard du Montparnasse 75014 Paris" ,
+studio2 = Studio.new( address: "6 boulevard du Montparnasse 75014 Paris" ,
             title: "Parc Studio",
-            description: "Parc studio is a truly one-of-a-kind musical sanctuary, converted from a classic cinema built in the 1970s.",
+            description: "Parc studio is a truly one-of-a-kind musical sanctuary, converted from a classic cinema built in the 1970s. The suite offers a space to edit, create, record independently or CONNECT with our other suites.",
             price: 55,
             capacity: 10,
             user_id: user1[:id]
@@ -45,7 +45,7 @@ studio2.save!
 
 studio3 = Studio.new( address: "74 avenue Paul Doumer 75016 Paris" ,
             title: "Live Studio",
-            description: "Write, record, and produce efficiently, with sessions operating in both rooms simultaneously.",
+            description: "Write, record, and produce efficiently, with sessions operating in both rooms simultaneously. Premium studio space in the heart of Paris, featuring extra large control room, booth and private lounge. Sony C800g microphone with classic Neve 1073 and Tube-Tech CL1B vocal chain. Convenient workspace, fully soundproofed and acoustically treated.",
             price: 60,
             capacity: 9,
             user_id: user1[:id]
@@ -55,7 +55,7 @@ studio3.save!
 
 studio4 = Studio.new( address: "8 rue du four 75006 Paris"  ,
             title: "Podcast Studio",
-            description: "Best recording spot for all of your professional needs",
+            description: "Best recording spot for all of your professional needs. Our dedicated audio recording suite Designed for recording podcasts, voice-overs, vocals and instruments. Alongside a professional mic selection and the latest podcasting hardware, LIVE has custom-built “suspended” equipment.",
             price: 65,
             capacity: 10,
             user_id: user1[:id]
@@ -65,10 +65,20 @@ studio4.save!
 
 studio5 = Studio.new( address: "131 rue de la boétie 75008 Paris" ,
             title: "Studio soundproof tech ",
-            description: "Convenient workspace, fully soundproofed and acoustically treated.",
+            description: "Comfortable, air conditioned, private, acoustically treated pro 18 x 12' natural-light control room with Mackie HR824 & Yamaha NOUS-10M monitoring (great for critical listening/mixing), and 18' x 6' floated is  booth; Perfect for co-writing, building tracks, cutting vocals, live instruments and mixing. ",
             price: 75,
             capacity: 8,
             user_id: user1[:id]
           )
 
 studio5.save!
+
+studio6 = Studio.new( address: "55 avenue des champs élysées 75008 Paris" ,
+            title: "The Box Recording",
+            description: "Isolated and creative environment that’s comfortable and affordable for artist to be productive. Perfect for vocal recordings with professional quality. Professional commercial and radio ready recordings done here for a good price.",
+            price:45,
+            capacity: 3,
+            user_id: user2[:id]
+          )
+
+studi6.save!
