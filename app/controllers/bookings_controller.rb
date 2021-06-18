@@ -41,6 +41,13 @@ class BookingsController < ApplicationController
 
   def display
     authorize :booking, :display?
+    array_bookings = []
+    current_user.studios.each do |studio|
+      studio.bookings.each do |booking|
+        array_bookings << booking
+      end
+    end
+    @bookings_current_user = array_bookings.sort_by(&:created_at).reverse
   end
 
   private
