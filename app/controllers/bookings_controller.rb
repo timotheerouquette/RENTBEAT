@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "To be confirmed"
     if @booking.save!
-      redirect_to my_bookings_path, notice: "confirmed!"
+      redirect_to my_bookings_path, notice: "Confirmed!"
     else
       render "studios/show"
     end
@@ -25,7 +25,8 @@ class BookingsController < ApplicationController
     @studio = @booking.studio
     @booking.status = "Confirmed"
     @booking.save
-    redirect_to studio_path(@studio), notice: "confirmed!"
+    redirect_back(fallback_location: my_bookings_path, notice: "Confirmed!")
+    # redirect_to studio_path(@studio), notice: "Confirmed!"
   end
 
   def cancel
@@ -34,7 +35,8 @@ class BookingsController < ApplicationController
     @studio = @booking.studio
     @booking.status = "Canceled"
     @booking.save
-    redirect_to studio_path(@studio), notice: "canceled!"
+    redirect_back(fallback_location: my_bookings_path, notice: "Canceled!")
+    # redirect_to studio_path(@studio), notice: "Canceled!"
   end
 
   def display
