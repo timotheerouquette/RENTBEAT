@@ -50,7 +50,7 @@
             <div>Total price: <span id="total-price" data-price='<%= @studio.price%>'></span>€</div>
             <br>
             <%= f.button :submit, "Confirm your booking", hidden: true, id: "sweet-alert-booking", class: "booking-btn"  %>
-            <btn id="fake-btn" class="booking-btn">Confirm your booking</btn>
+            <btn id="fake-btn" data-studio="<%= @studio.title %>" class="booking-btn">Confirm your booking</btn>
             <% end %>
 
           </div>
