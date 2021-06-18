@@ -75,10 +75,14 @@
 }
 
 .content-profile {
-  line-height:1px;
+  line-height:2px;
 }
 
 #user-name-show {
   color: $pink;
   font-weight:600;
+}
+
+.user-description-show {
+  font-size:13px;
 }
