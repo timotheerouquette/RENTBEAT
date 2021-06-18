@@ -75,7 +75,7 @@
 
     <div class="profile-show">
       <% if @studio.user.avatar.attached? %>
-        <%= cl_image_tag studio.user.avatar.key, crop: :fill, class: "card-studio-user avatar-bordered"%>
+        <%= cl_image_tag @studio.user.avatar.key, crop: :fill, class: "card-studio-user avatar-bordered-show"%>
       <% else %>
         <img class="card-studio-user avatar-bordered-show" src="https://images.unsplash.com/photo-1574882225022-9e0e447e9662?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" />
       <% end %>
