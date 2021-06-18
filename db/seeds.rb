@@ -75,7 +75,7 @@ studio5.save!
 
 studio6 = Studio.new( address: "55 avenue des champs élysées 75008 Paris" ,
             title: "The Box Recording",
-            description: "Isolated and creative environment that’s comfortable and affordable for artist to be productive. Perfect for vocal recordings with professional quality. Professional commercial and radio ready recordings done here for a good price.",
+            description: "Isolated and creative environment that’s comfortable and affordable for artists to be productive. Perfect for vocal recordings with professional quality. Professional commercial and radio ready recordings done here for a good price.",
             price:45,
             capacity: 3,
             user_id: user2[:id]
