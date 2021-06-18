@@ -10,13 +10,16 @@
   </div>
 
 <div class="card-studio-infos">
-  <div>
-    <h5 class="title-card"><%= studio.title %></h5>
-    <p> — <em><%= studio.address %></em> </p>
-  </div>
-  <div>
-    <p> <%= studio.capacity %> <i class="far fa-user"></i> </p>
-    <p class="price"> <strong><%= studio.price %>€ </strong></p>
+
+  <div class="card-studio-content">
+    <div class="title-descr-card">
+      <h5 class="title-card"><%= studio.title %></h5>
+      <p> — <em><%= studio.address %></em> </p>
+    </div>
+    <div>
+      <p> <%= studio.capacity %> <i class="far fa-user"></i> </p>
+      <p class="price"> <strong><%= studio.price %>€ </strong></p>
+    </div>
   </div>
 
   <% if studio.user.avatar.attached? %>
