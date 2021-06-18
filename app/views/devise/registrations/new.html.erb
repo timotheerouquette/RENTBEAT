@@ -16,7 +16,8 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-      <%= f.input :name %>
+      <%= f.input :name, placeholder: 'What is your name?' %>
+      <%= f.input :description, placeholder: 'Present yourself for other users to know you more' %>
       <%= f.input :avatar, placeholder: 'Upload picture', as: :file %>
 
     </div>
