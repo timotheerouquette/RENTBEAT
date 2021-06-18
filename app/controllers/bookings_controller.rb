@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.studio = @studio
     @booking.user = current_user
     @booking.status = "To be confirmed"
-    if @booking.save!
+    if @booking.save
       redirect_to my_bookings_path, notice: "confirmed!"
     else
       render "studios/show"

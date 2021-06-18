@@ -21,7 +21,7 @@ const Sweetalert = (selector, options = {}, callback = () => {}) => {
     const price = document.getElementById('total-price')
     swalButton.addEventListener('click', (event) => {
       swal({
-        title: "Your booking",
+        title: `Your booking at ${swalButton.dataset.studio} `,
         text: `From ${dates.value}
 
         Estimated price: ${price.innerText}€`,
