@@ -4,7 +4,7 @@
 
   <div class="container-studios-title">
     <div id="all-studios">
-      <h1>All studios </h1>
+      <h1>All studios (<%= @studios.size %>)</h1>
     </div>
     <div>
       <% if policy(Studio).create? %>
@@ -38,7 +38,7 @@
 
     <% if current_user.studios.length !=0 %>
       <div class="cards-index">
-        <h1>My studios</h1>
+        <h1>My studios (<%= current_user.studios.size %>)</h1>
       </div>
     <% end %>
 
