@@ -33,7 +33,7 @@ studio1 = Studio.new(address: "74 boulevard du Montparnasse 75014 Paris" ,
 
 studio1.save!
 
-studio2 = Studio.new( address: "74 boulevard du Montparnasse 75014 Paris" ,
+studio2 = Studio.new( address: "6 boulevard du Montparnasse 75014 Paris" ,
             title: "Parc Studio",
             description: "Parc studio is a truly one-of-a-kind musical sanctuary, converted from a classic cinema built in the 1970s. The suite offers a space to edit, create, record independently or CONNECT with our other suites.",
             price: 55,
@@ -72,3 +72,13 @@ studio5 = Studio.new( address: "131 rue de la boétie 75008 Paris" ,
           )
 
 studio5.save!
+
+studio6 = Studio.new( address: "55 avenue des champs élysées 75008 Paris" ,
+            title: "The Box Recording",
+            description: "Isolated and creative environment that’s comfortable and affordable for artist to be productive. Perfect for vocal recordings with professional quality. Professional commercial and radio ready recordings done here for a good price.",
+            price:45,
+            capacity: 3,
+            user_id: user2[:id]
+          )
+
+studi6.save!
