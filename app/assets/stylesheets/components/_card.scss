@@ -60,7 +60,7 @@
   border-radius: 5px;
   overflow: hidden;
   margin: 10px;
-  padding: 10px;
+  //padding: 10px;
   padding-left: 20px;
   list-style:none;
 }
@@ -70,8 +70,12 @@
   justify-content: space-between;
 }
 
+.card-text {
+  padding-top:10px;
+}
+
 .card-photo > img {
-  height: 100px;
+  height: 236px;
   width: 200px;
   object-fit: cover;
   &:hover {

@@ -1,35 +1,179 @@
 
 <div class="container-mybookings">
   <h1>My bookings</h1>
-  <ul>
-    <% current_user.bookings.each do |booking| %>
-      <div class="card card-booking">
-        <div class="card-manage">
-          <div class="card-text">
-            <% if booking.status == "To be confirmed"%>
-              <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
-            <% elsif booking.status == "Confirmed"%>
-              <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
-            <% elsif booking.status == "Canceled"%>
-              <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-danger"><%= booking.status %></span></li>
-            <% end %>
-            <p>
-              From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
-              To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %>
-            </p>
-          </div>
-          <%= link_to studio_path(booking.studio) do %>
-            <div class="card-photo">
-              <% if booking.studio.photos.attached? %>
-                <%= cl_image_tag booking.studio.photos.key, crop: :fill %>
-              <% else %>
-                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
-              <% end %>
+
+  <br>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My bookings</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Manage my studio's reservations</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <ul>
+          <% current_user.bookings.sort_by(&:created_at).reverse.each do |booking| %>
+            <div class="card card-booking">
+              <div class="card-manage">
+                <div class="card-text">
+                  <% if booking.status == "To be confirmed"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+                  <% elsif booking.status == "Confirmed"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
+                  <% elsif booking.status == "Canceled"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-danger"><%= booking.status %></span></li>
+                  <% end %>
+                  <p>
+                    From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
+                    To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %> <br>
+                    <i class="fas fa-map-marker"></i> <%= booking.studio.address %>
+                    Booked to: <%= booking.studio.user.name %>
+
+                    <% if booking.studio.user.avatar.attached? %>
+                      <%= cl_image_tag booking.studio.user.avatar.key, crop: :fill, class: "card-studio-user avatar-bordered"%>
+                    <% else %>
+                      <img class="card-studio-user avatar-bordered" src="https://images.unsplash.com/photo-1574882225022-9e0e447e9662?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" />
+                    <% end %>
+                  </p>
+
+                </div>
+                <%= link_to studio_path(booking.studio) do %>
+                  <div class="card-photo">
+                    <% if booking.studio.photos.attached? %>
+                      <%= cl_image_tag booking.studio.photos.key, crop: :fill %>
+                    <% else %>
+                      <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           <% end %>
-        </div>
-      </div>
+        </ul>
+    </div>
 
-    <% end %>
-  </ul>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      <ul>
+        <% @bookings_current_user.each do |booking| %>
+
+            <div class="card card-booking">
+              <div class="card-manage">
+                <div class="card-text">
+
+                  <div class="booking-title-container">
+
+                    <div>
+                      <% if booking.user.avatar.attached? %>
+                        <%= cl_image_tag booking.user.avatar.key, crop: :fill, class: "card-studio-user avatar-bordered"%>
+                      <% else %>
+                        <img class="card-studio-user avatar-bordered" src="https://images.unsplash.com/photo-1574882225022-9e0e447e9662?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" />
+                      <% end %>
+                    </div>
+
+                      <div class="booking-title">
+                      <% if booking.status == "To be confirmed"%>
+                        <li> Reservation by <strong><%= booking.user.name %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+                      <% elsif booking.status == "Confirmed"%>
+                        <li>Reservation by <strong><%= booking.user.name %></strong> -  <span class="badge badge-success"><%= booking.status %></span></li>
+                      <% elsif booking.status == "Canceled"%>
+                        <li>Reservation by <strong><%= booking.user.name %></strong> - <span class="badge badge-danger"><%= booking.status %></span></li>
+                      <% end %>
+
+                      <span class="booking-date">
+                        <i class="far fa-clock"></i> <%= booking.created_at.strftime("%a, %d %b %Y")%> at <%= booking.created_at.strftime("%H:%M") %>
+                      </span>
+                      </div>
+                  </div>
+                  <span class="booking-details-title"><em>Booking details</em></span>
+                  <div class="booking-details">
+                    <strong><%= booking.studio.title %></strong><br>
+                    From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
+                    To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %>
+                  </div>
+
+
+                  </p>
+
+              <%= link_to "Confirm", confirm_booking_path(booking), method: :patch %>
+              <%= link_to "Cancel", cancel_booking_path(booking), method: :patch %>
+
+
+
+                  </p>
+                </div>
+                <%= link_to studio_path(booking.studio) do %>
+                  <div class="card-photo">
+                    <% if booking.studio.photos.attached? %>
+                      <%= cl_image_tag booking.studio.photos.key, crop: :fill %>
+                    <% else %>
+                      <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+      </ul>
+
+
+    <!--
+      <ul>
+        <% current_user.studios.each do |studio| %>
+          <% studio.bookings.sort_by(&:created_at).reverse.each do |booking| %>
+            <div class="card card-booking">
+              <div class="card-manage">
+                <div class="card-text">
+                  <% if booking.status == "To be confirmed"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-warning"><%= booking.status %></span></li>
+                  <% elsif booking.status == "Confirmed"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-success"><%= booking.status %></span></li>
+                  <% elsif booking.status == "Canceled"%>
+                    <li><strong><%= booking.studio.title %></strong> - <span class="badge badge-danger"><%= booking.status %></span></li>
+                  <% end %>
+                  <p>
+                    From : <%= booking.start_date.strftime("%a, %d %b %Y")%> at <%= booking.start_date.strftime("%H:%M") %> <br>
+                    To : <%= booking.end_date.strftime("%a, %d %b %Y")%> at <%= booking.end_date.strftime("%H:%M") %> <br><br>
+                    Booked by: <%= booking.user.name %>
+
+                    <% if booking.user.avatar.attached? %>
+                      <%= cl_image_tag booking.user.avatar.key, crop: :fill, class: "card-studio-user avatar-bordered"%>
+                    <% else %>
+                      <img class="card-studio-user avatar-bordered" src="https://images.unsplash.com/photo-1574882225022-9e0e447e9662?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" />
+                    <% end %>
+                  </p>
+
+              <%= link_to "Confirm", confirm_booking_path(booking), method: :patch %>
+              <%= link_to "Cancel", cancel_booking_path(booking), method: :patch %>
+
+
+
+                  </p>
+                </div>
+                <%= link_to studio_path(booking.studio) do %>
+                  <div class="card-photo">
+                    <% if booking.studio.photos.attached? %>
+                      <%= cl_image_tag booking.studio.photos.key, crop: :fill %>
+                    <% else %>
+                      <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2550&q=80" />
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+    -->
+
+    </div>
+  </div>
+
+
 </div>
+
+<% console %>
